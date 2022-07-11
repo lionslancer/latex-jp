@@ -1,0 +1,34 @@
+% upLaTeX
+\RequirePackage{plautopatch}
+\documentclass[a4paper, article, uplatex, dvipdfmx]{jlreq}
+
+% pLaTeX
+% \RequirePackage{plautopatch}
+% \documentclass[a4paper, article, dvipdfmx]{jlreq}
+
+\usepackage{enumitem_extended}
+\setlist[enumerate,1]{label = \iKata*\space}
+\setlist[enumerate,2]{label = \Maru*\space}
+\setlist[enumerate,3]{label = \Hira*\space}
+\setlist[enumerate,4]{label = \ksuji*\space}
+
+\begin{document}
+
+\begin{enumerate}
+    \item Level 1
+    \item Level 1
+    \begin{enumerate}
+        \item Level 2
+        \item Level 2
+        \begin{enumerate}
+            \item Level 3
+            \item Level 3
+            \begin{enumerate}
+                \item Level 4
+                \item Level 4
+            \end{enumerate}
+        \end{enumerate}
+    \end{enumerate}
+\end{enumerate}
+
+\end{document}

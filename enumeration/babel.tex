@@ -1,0 +1,38 @@
+% LuaLaTeX
+\documentclass[a4paper, article, lualatex]{jlreq}
+
+% upLaTeX
+% \RequirePackage{plautopatch}
+% \documentclass[a4paper, article, uplatex, dvipdfmx]{jlreq}
+
+% pLaTeX
+% \RequirePackage{plautopatch}
+% \documentclass[a4paper, article, dvipdfmx]{jlreq}
+
+\usepackage{enumitem}
+\usepackage[japanese, provide=*]{babel}
+\setlist[enumerate,1]{label = \protect\localecounter{katakana.iroha}{enumi}\space}
+\setlist[enumerate,2]{label = \protect\localecounter{circled.ideograph}{enumii}\space}
+\setlist[enumerate,3]{label = \protect\localecounter{cjk-heavenly-stem}{enumiii}\space}
+\setlist[enumerate,4]{label = \protect\localecounter{cjk-earthly-branch}{enumiv}\space}
+
+\begin{document}
+
+\begin{enumerate}
+    \item Level 1
+    \item Level 1
+    \begin{enumerate}
+        \item Level 2
+        \item Level 2
+        \begin{enumerate}
+            \item Level 3
+            \item Level 3
+            \begin{enumerate}
+                \item Level 4
+                \item Level 4
+            \end{enumerate}
+        \end{enumerate}
+    \end{enumerate}
+\end{enumerate}
+
+\end{document}
