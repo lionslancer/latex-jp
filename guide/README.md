@@ -8,9 +8,9 @@ There are three main engines available for typesetting Japanese documents:
 
 - *pTeX* is a TeX engine designed for typesetting Japanese. It uses special mechanisms to support the conventions of Japanese typesetting, which cannot be provided through a normal package.
 
-- *upTeX* is the unicode version of pTeX. It's existence effectively makes pTeX obselete, other than for legacy purposes. pTeX seems to be able to handle files encoded in UTF-8 these days, but unlike upTeX, it will fail if the input contains characters that did not exist in its original encoding.
+- *upTeX* is the unicode version of pTeX. Its existence effectively makes pTeX obselete, other than for legacy purposes. pTeX seems to be able to handle files encoded in UTF-8 these days, but unlike upTeX, it will fail if the input contains characters that did not exist in its original encoding.
 
-- The `luatexja` package implements pTeX primitives in the LuaTeX engine. This is possible through the use of Lua callbacks, which enable the implementation of features which cannot be built with TeX primitives alone.
+- The `luatexja` package implements pTeX primitives in the LuaTeX engine. This is possible through the use of Lua callbacks, enabling the implementation of features which cannot be built with TeX primitives alone.
 
 upTeX and LuaTeX each have their own strengths. upTeX uses the pLaTeX2ε format, while LuaTeX uses the more common LaTeX2ε format. This means that some packages written for pTeX will refuse to work with LuaTeX, and vice versa. LuaTeX is more compatible with modern packages, with many specifically taking advantage of LuaTeX's built-in Lua interpreter.
 
@@ -79,7 +79,7 @@ The *js* classes are improved versions of the *j* classes, created by Haruhiko O
 
 ### Comments
 
-The *j* classes have a number of flaws which make them less than ideal for professional documents. The *js* classes addressed these issues, effectively obsoleting their *j* class counterparts.
+The *j* classes have a number of flaws which make them less than ideal for professional documents. The *js* classes addressed these issues, effectively rendering their *j* class counterparts obsolete.
 
 The second good option is the `jlreq` class. As there are no vertical *js* classes, it is the *only* option for producing high quality vertical documents without manually tweaking settings.
 
