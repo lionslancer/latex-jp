@@ -25,6 +25,8 @@ If using (u)pTeX, the `plautopatch` package should be loaded at the beginning of
 \documentclass[dvipdfmx]{jsarticle}
 ```
 
+Note: `\RequirePackage` is used in order load a package before the document class.
+
 ## Classes
 
 There are a number of classes to choose from. The most relevant ones are the *j* and *js* class families, as well as the `jlreq` class.
