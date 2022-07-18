@@ -10,6 +10,9 @@ This repo contains useful information for getting started with typesetting Japan
 - [*js* classes and the *jis* font metric](jsclasses)
   - Explains the differences between the *j* classes and *js* classes, as well as the *jis* font metric. Read the main guide first.
 
+- [Whitespace and linebreaks](linebreak)
+  - More in-depth explanation of how whitespace and line breaks are handled in Japanese documents, and how 禁則処理 (line breaking rules) are implemented.
+
 - [Using Japanese counter styles in enumerated lists](enumeration)
   - Explains how to customize lists to use Japanese counter styles such as いろは.
 
