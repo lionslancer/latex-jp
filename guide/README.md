@@ -16,16 +16,43 @@ upTeX and LuaTeX each have their own strengths. upTeX uses the pLaTeX2ε format,
 
 I would recommend sticking with LuaTeX unless a (u)pTeX-specific package is required. LuaTeX is the future, and `luatexja` is  mature enough to be the default choice.
 
-### Compilation with (u)pTeX
+### Compilation
 
-If using (u)pTeX, the `plautopatch` package should be loaded at the beginning of the document, in order to automatically resolve incompatibilites between (u)pTeX and certain Western LaTeX packages. Additionally, because (u)pTeX outputs to DVI, it is good to specify the DVI driver as a package option.
+If using (u)pTeX, the `plautopatch` package should be loaded at the beginning of the document, in order to automatically resolve incompatibilites between (u)pTeX and certain Western LaTeX packages.
+
+Additionally, because (u)pTeX outputs to DVI, it is good to specify the DVI driver as a package option. If an option such as `landscape` is passed to the document class, the DVI driver will not automatically detect that the dimensions have been changed. When a paper size option is used, loading the `bxpapersize` package will ensure that the DVI driver uses the correct dimensions.
+
+For pTeX:
 
 ```latex
 \RequirePackage{plautopatch}
 \documentclass[dvipdfmx]{jsarticle}
 ```
 
+For upTeX (landscape document):
+
+```latex
+\RequirePackage{plautopatch}
+\documentclass[uplatex, dvipdfmx]{jsarticle}
+\usepackage{bxpapersize}
+```
+
 Note: `\RequirePackage` is used in order load a package before the document class.
+
+Compile as follows (remove the initial 'u' if using pTeX):
+
+```shell
+uplatex -kanji=utf8 -no-guess-input-enc
+dvipdfmx file.dvi
+```
+
+The flags are used to ensure that the input is interpreted as being UTF-8. By default, (u)pTeX will attempt to guess the encoding, with varying success. More information available [here](https://texwiki.texjp.org/?upTeX%2CupLaTeX#rfce644f) (in Japanese).
+
+LuaTeX documents are compiled with:
+
+```shell
+lualatex file.tex
+```
 
 ## Classes
 
