@@ -11,7 +11,7 @@ They are improved versions of the default *"j"* classes with the goal of  implem
 
 The result of these differences can be observed in the following image:
 
->![jsclasses_comparison](img/jsclasses_comparison.png)
+>![](../img/jsclasses_comparison.png)
 >
 > Figure 9 compares typesetting results by the pLaTeX2ε default (left) and the *js* document classes. We notice that the `\baselineskip` is wider for *js* (which is not significant here), that the combination of two small *hiragana* “ょっ” is too tight for the default class (a well-known bug of the old font metric), and that the apparent indentation is 1.5 zw, not 1 zw, for the default class, when a halfwidth quotation mark or a parenthesis begins the paragraph.
 
@@ -21,13 +21,13 @@ The *jis* font metric is a Japanese Font Metric (JFM) designed to conform to JIS
 
 The font metric appears to mainly affect glue placement and sizing. Some of the more noteable differences between the *jis* font metric and the pTeX default can be observed in the following image. Note how the old font metric places gaps before the comma and inside of the quotation marks. Also note how the small kana are not the correct width.
 
-> ![fontmetric_comparison](img/fontmetric_comparison.png)
+> ![](../img/fontmetric_comparison.png)
 >
 > We have not provided thorough comparisons of the old and *jis* font metrics. Suffice it to give a small example, Figure 8, for a casual comparison. Note that *jis* font metric tries to conserve fullwidth-ness of Japanese characters but avoids large voids by cutting halfwidth spaces off them.
 
 The following tables provide more details on how the font metric determines where to place glues. In cases where no glue is specified, the system may insert `\kanjiskip` or `\xkanjiskip` instead.
 
-> ![fontmetric_tables](img/fontmetric_tables.png)
+> ![](../img/fontmetric_tables.png)
 >
 > Because there are thousands of Japanese characters, a pairwise glue/kern table is prohibitive. pTeX has an extended font metric format, often called JFM (Japanese Font Metric), that groups characters into several CHARTYPEs and specifies glue/kern insertions for each pair of groups.
 
@@ -71,20 +71,24 @@ using:
 
 - `jarticle`:
 
-    ![jarticle_heading](img/jarticle_heading.png)
+    ![](../img/jarticle_heading.png)
 
 - `jsarticle`:
 
-    ![jsarticle_heading](img/jsarticle_heading.png)
+    ![jsarticle_heading](../img/jsarticle_heading.png)
 
 > This means that Japanese document classes must set headers with `\sffamily` and `\gtfamily`, and possibly `\bfseries` (although `\bfseries` has effect only when the four fonts in Table 3 are accessible). This serif/sans-serif consistency is one of the most conspicuous improvement of *js* over the default pLaTeX2ε classes.
 
+### Font family synchronization
+
+The *js* classes synchronize Latin and Japanese fonts families, such that the Japanese fonts will automatically switch to *mincho/gothic* when the latin font is set to *roman/sans*.
+
 ## Conclusion
 
-If writing horizontal documents, *js* classes are preferable over the default equivalents:
+When writing horizontal documents, *js* classes are preferable over the default equivalents:
 
 - For pLaTeX, use `jsarticle` instead of `jarticle`.
-- For upLaTeX, use `jsarticle` *with the `uplatex` argument* instead of `ujarticle`.
+- For upLaTeX, use `jsarticle` *with the* `uplatex` *argument* instead of `ujarticle`.
 - For LuaLaTeX, use `ltjsarticle` instead of `ltjarticle`.
 
 As *js* classes are not available for vertical documents, there are effectively two options:
@@ -92,10 +96,7 @@ As *js* classes are not available for vertical documents, there are effectively 
 - [Hack](https://tex.stackexchange.com/questions/233736/uplatex-and-line-indentation-tbook) the relevant *js* class into producing vertical output.
   - Takes more work but will most likely produce better output.
 - Use the default vertical classes, `(u)tarticle` and `ltjtarticle`.
-  - The font metric can be replaced in order to improve the quality of the final document:
-    - With (u)pLaTeX, loading the `otf` package will overwrite the font metric with one that is based on the *jis* font metric.
-    - `luatex-ja` actually uses a font metric based on the `otf` package by default.
-  - Will most likely still require tweaking of the settings in order to compensate for the missing *js* class settings.
+  - While there are packages capable of mitigating some the issues with these classes, it is much easier to simply use a different class.
 
 Because of this it is recommended to use the `jlreq` class for vertical documents. It is also just as good as the *js* classes for typesetting horizontal documents, and has the advantage of being compatible with all engines.
 
@@ -104,3 +105,10 @@ Because of this it is recommended to use the `jlreq` class for vertical document
 Unless otherwise stated, all information taken from:
 
 - Haruhiko Okumura, [*"pTeX and Japanese Typesetting"*](http://ajt.ktug.org/2008/0201okumura.pdf), The Asian Journal of TeX, Volume 2, No. 1, 2008.
+
+## Resources
+
+- [LaTeX の「アレなデフォルト」 傾向と対策](https://qiita.com/zr_tex8r/items/297154ca924749e62471)
+  - Post by ZR detailing some of the pLaTeX defaults.
+- [min10 フォントについて](http://argent.shinshu-u.ac.jp/~otobe/tex/files/min10.pdf)
+  - Details of the default pLaTeX font metric.
